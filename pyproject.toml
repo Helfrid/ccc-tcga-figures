@@ -1,0 +1,32 @@
+[project]
+name = "ccc-tcga-figures"
+version = "0.1.0"
+description = "Code and data behind the TCGA figures in the Cancer and the Cell Cycle lectures (University of Sussex)"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "marimo>=0.25.2",
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.4",
+    "pandas>=3.1.0",
+    "pyarrow>=26.0.0",
+]
+
+[tool.uv]
+exclude-newer = "7 days"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.17.3",
+]
+
+[tool.ruff]
+line-length = 79
+
+[tool.ruff.lint.isort]
+known-first-party = ["tcga", "colors"]
+
+[tool.ruff.lint.per-file-ignores]
+# marimo cells: a bare last expression is the cell's output; every cell
+# ends in a return
+"notebooks/[0-9]*.py" = ["B018", "PLR1711"]

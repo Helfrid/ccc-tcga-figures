@@ -1,0 +1,39 @@
+{
+  // Use the project's own virtual environment (.venv) for the Python
+  // interpreter, the terminal and Jupyter notebook kernels.
+  "python.terminal.activateEnvironment": true,
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true,
+
+  // Ruff formats and lints Python files and notebook cells.
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
+    }
+  },
+  "notebook.formatOnSave.enabled": true,
+
+  // Notebooks run from the project root, so paths like "data/file.csv"
+  // work wherever the notebook lives.
+  "jupyter.notebookFileRoot": "${workspaceFolder}",
+
+  // Tests
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+
+  // Keep caches out of search and the file watcher
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.venv/**": true,
+    "**/.ruff_cache/**": true,
+    "**/__pycache__/**": true
+  },
+  "search.exclude": {
+    "**/.venv": true,
+    "**/.ruff_cache": true,
+    "**/__pycache__": true
+  }
+}
